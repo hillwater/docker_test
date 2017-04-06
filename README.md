@@ -2,7 +2,7 @@
 
 ## build
 ```
-docker build -t hillwater/aws_batch_test:1.0
+docker build -t hillwater/aws_batch_test:1.0 .
 ```
 
 
