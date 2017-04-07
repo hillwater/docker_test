@@ -2,6 +2,8 @@ FROM ubuntu:trusty
 MAINTAINER hillwater <hillwater.zju@gmail.com>
 
 ENV JAVA_VERSION 8
+ENV EDP2_DIR /opt/edp2
+ENV EDP2_BIN_DIR ${EDP2_DIR}/bin
 
 RUN apt-get update && apt-get -y install software-properties-common python-software-properties
 
@@ -16,3 +18,8 @@ RUN \
   rm /var/cache/oracle-jdk${JAVA_VERSION}-installer/jdk-*.tar.gz
 
 RUN update-alternatives --display java
+
+RUN mkdir -p ${EDP2_DIR}
+RUN mkdir -p ${EDP2_BIN_DIR}
+
+ADD ./run.sh ${EDP2_BIN_DIR}/
